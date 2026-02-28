@@ -1,0 +1,110 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "iEvo Agent Package",
+  "description": "Schema for agent.yaml — the agent package manifest",
+  "type": "object",
+  "required": ["name", "version", "description", "model"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Agent name (lowercase, hyphens allowed)"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version"
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "Short agent description"
+    },
+    "author": {
+      "type": "string"
+    },
+    "license": {
+      "type": "string",
+      "default": "MIT"
+    },
+    "category": {
+      "type": "string",
+      "enum": ["core", "dev", "ops", "data", "security", "community"],
+      "description": "Agent category in marketplace"
+    },
+    "model": {
+      "type": "object",
+      "required": ["primary"],
+      "properties": {
+        "primary": {
+          "type": "string",
+          "enum": ["opus", "sonnet", "haiku"],
+          "description": "Default model tier"
+        },
+        "fallback": {
+          "type": "string",
+          "enum": ["opus", "sonnet", "haiku"],
+          "description": "Fallback model if primary unavailable"
+        },
+        "min_tier": {
+          "type": "string",
+          "enum": ["opus", "sonnet", "haiku"],
+          "description": "Minimum required model tier"
+        }
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": [],
+      "description": "Other agents this agent depends on"
+    },
+    "disclosure": {
+      "type": "object",
+      "description": "Progressive disclosure levels",
+      "properties": {
+        "l1_meta": {
+          "type": "string",
+          "description": "Path to metadata file (always loaded)"
+        },
+        "l2_instructions": {
+          "type": "string",
+          "description": "Path to ROLE.md (loaded on run)"
+        },
+        "l3_resources": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Paths to memory/context files"
+        }
+      }
+    },
+    "hooks": {
+      "type": "object",
+      "description": "Lifecycle hooks",
+      "properties": {
+        "pre_run": {
+          "type": ["string", "null"],
+          "description": "Script to run before agent session"
+        },
+        "post_run": {
+          "type": ["string", "null"],
+          "description": "Script to run after agent session"
+        },
+        "on_error": {
+          "type": ["string", "null"],
+          "description": "Script to run on agent error"
+        },
+        "on_evolve": {
+          "type": ["string", "null"],
+          "description": "Script to run after EVO mutation"
+        }
+      }
+    },
+    "config": {
+      "type": "object",
+      "description": "Agent-specific configuration",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

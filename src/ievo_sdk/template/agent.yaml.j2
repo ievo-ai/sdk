@@ -1,0 +1,26 @@
+name: {{ name }}
+version: 0.1.0
+description: "{{ description }}"
+author: "{{ author }}"
+license: MIT
+category: {{ category }}
+
+model:
+  primary: {{ model }}
+  fallback: haiku
+
+dependencies: {{ dependencies }}
+
+disclosure:
+  l1_meta: agent.yaml
+  l2_instructions: ROLE.md
+  l3_resources:
+    - memory/CONTEXT.md
+    - memory/DECISIONS.md
+    - memory/VOCABULARY.md
+    - memory/HISTORY.md
+
+# hooks:
+#   post_run: "scripts/post_run.sh"
+#   on_error: "scripts/on_error.sh"
+#   on_evolve: "scripts/on_evolve.sh"
