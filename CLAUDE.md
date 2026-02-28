@@ -5,7 +5,7 @@ Developer toolkit for building self-evolving agents.
 ## Project
 
 - **Name**: ievo-sdk
-- **Language**: Python 3.10+
+- **Language**: Python 3.13+
 - **Framework**: Jinja2 (templates) + jsonschema (validation) + Rich (CLI output)
 - **Package manager**: uv (hatchling build)
 - **Entry point**: `ievo-sdk` → `src/ievo_sdk/cli.py`

@@ -7,7 +7,7 @@ name = "ievo-sdk"
 version = "0.1.0"
 description = "Developer toolkit for building iEvo agents"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.13"
 license = "MIT"
 authors = [{ name = "iEvo", email = "hello@ievo.ai" }]
 dependencies = [
@@ -24,11 +24,12 @@ ievo-sdk = "ievo_sdk.cli:main"
 dev = ["pytest>=8.0", "ruff>=0.8.0"]
 
 [tool.uv]
+python = ">=3.13"
 dev-dependencies = ["pytest>=8.0", "ruff>=0.8.0"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/ievo_sdk"]
 
 [tool.ruff]
-target-version = "py310"
+target-version = "py313"
 line-length = 100
