@@ -23,9 +23,8 @@ ievo-sdk = "ievo_sdk.cli:main"
 [project.optional-dependencies]
 dev = ["pytest>=8.0", "ruff>=0.8.0"]
 
-[tool.uv]
-python = ">=3.13"
-dev-dependencies = ["pytest>=8.0", "ruff>=0.8.0"]
+[dependency-groups]
+dev = ["pytest>=8.0", "ruff>=0.8.0"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/ievo_sdk"]
