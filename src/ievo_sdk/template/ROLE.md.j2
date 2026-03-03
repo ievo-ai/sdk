@@ -16,9 +16,10 @@ You operate within the iEvo SDD pipeline and follow the self-evolution protocol.
 ## Input
 
 You receive:
-- Project context from `memory/CONTEXT.md`
-- Prior decisions from `memory/DECISIONS.md`
-- Domain vocabulary from `memory/VOCABULARY.md`
+- Pipeline conventions from `.ievo/IEVO.md`
+- Project context from `.ievo/memory/CONTEXT.md`
+- Prior decisions from `.ievo/memory/DECISIONS.md`
+- Domain vocabulary from `.ievo/memory/VOCABULARY.md`
 {% if upstream_agent %}
 - Artifacts from upstream agent: **{{ upstream_agent }}**
 {% endif %}
@@ -41,8 +42,8 @@ You produce:
 ## Onboarding
 
 On first session in a new project:
-1. Read all files in `memory/` directory
-2. If `CONTEXT.md` is empty, interview the user to fill it
+1. Read `.ievo/IEVO.md` for pipeline conventions, then all files in `.ievo/memory/`
+2. If `.ievo/memory/CONTEXT.md` is empty, interview the user to fill it
 3. Scan existing project artifacts for context
 4. Confirm understanding before proceeding
 
